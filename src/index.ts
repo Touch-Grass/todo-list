@@ -21,15 +21,19 @@ btn?.addEventListener("click", () => {
         let listHTML: any = `<p>${list[count]}</p>`
         count++;
         if (count === list.length) 
-            count = 0;
+        count = 0;
         document.getElementById("p__html")!.innerHTML = listHTML; //Sets the HTML to a value in the list.
     }
 });
 
 btnSuprise?.addEventListener("click", () => {
-    count = Math.floor(Math.random() * (list.length - 0));  //Getting a random number that is the length of the list.
-    let listHTML: any = `<p>${list[count]}</p>`
-    document.getElementById("p__html")!.innerHTML = listHTML;
+    if (list.length === 0) {
+        document.getElementById('alert__warning--list')!.style.display = 'block';
+    } else {
+        count = Math.floor(Math.random() * (list.length - 0));  //Getting a random number that is the length of the list.
+        let listHTML: any = `<p>${list[count]}</p>`
+        document.getElementById("p__html")!.innerHTML = listHTML;
+    }
 });
 
 btnAdd?.addEventListener("click", () => {

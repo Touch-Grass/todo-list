@@ -25,9 +25,14 @@ btn === null || btn === void 0 ? void 0 : btn.addEventListener("click", function
     }
 });
 btnSuprise === null || btnSuprise === void 0 ? void 0 : btnSuprise.addEventListener("click", function () {
-    count = Math.floor(Math.random() * (list.length - 0));
-    var listHTML = "<p>".concat(list[count], "</p>");
-    document.getElementById("p__html").innerHTML = listHTML;
+    if (list.length === 0) {
+        document.getElementById('alert__warning--list').style.display = 'block';
+    }
+    else {
+        count = Math.floor(Math.random() * (list.length - 0));
+        var listHTML = "<p>".concat(list[count], "</p>");
+        document.getElementById("p__html").innerHTML = listHTML;
+    }
 });
 btnAdd === null || btnAdd === void 0 ? void 0 : btnAdd.addEventListener("click", function () {
     inputAdd.style.display = inputAdd.style.display == 'none' ? 'block' : 'none';
